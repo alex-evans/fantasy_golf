@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>The PLAYERS</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Group A</th>
+                <th scope="col">Winnings</th>
+                <th scope="col">Group B</th>
+                <th scope="col">Winnings</th>
+                <th scope="col">Group C</th>
+                <th scope="col">Winnings</th>
+                <th scope="col">Group D</th>
+                <th scope="col">Winnings</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ obj.person_name }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
