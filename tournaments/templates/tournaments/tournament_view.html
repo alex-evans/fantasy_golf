@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %}
+{% extends 'tournaments/base.html' %}
 
 {% block content %}
 
@@ -20,9 +20,20 @@
             </tr>
         </thead>
         <tbody>
+            {% for member in members %}
             <tr>
-                <td>{{ obj.person_name }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.pick_a }}</td>
+                <td>{{ member.pick_a_winnings }}</td>
+                <td>{{ member.pick_b }}</td>
+                <td>{{ member.pick_b_winnings }}</td>
+                <td>{{ member.pick_c }}</td>
+                <td>{{ member.pick_c_winnings }}</td>
+                <td>{{ member.pick_d }}</td>
+                <td>{{ member.pick_d_winnings }}</td>
+                <td>{{ member.total }}</td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>

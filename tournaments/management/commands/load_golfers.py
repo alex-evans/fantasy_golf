@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from bs4 import BeautifulSoup
-from main.models import Golfer
+from tournaments.models import Golfer
 import os
 import requests
 
@@ -9,12 +9,16 @@ class Command(BaseCommand):
     help = 'Loads Golfers from ESPN'
 
     def handle(self, *args, **options):
+        self.clear_golfers()
         self.add_players_tournament()
         # self.add_masters_tournament()
         # self.add_pga_tournament()
         # self.add_us_open_tournament()
         # self.add_the_open_tournament()
         self.stdout.write(self.style.SUCCESS('Successfully loaded Golfers'))
+
+    def clear_golfers(self):
+        Golfer.objects.all().delete()
 
     def add_players_tournament(self):
         tournament_url = 'https://www.espn.com/golf/leaderboard?tournamentId=401155428'
@@ -39,7 +43,7 @@ class Command(BaseCommand):
         for row in field_rows:
             name = row.get_text()
             try:
-                Golfer.objects.get(name=name)
+                Golfer.objects.get(name = name)
             except Golfer.DoesNotExist:
-                p = Golfer(name=name)
+                p = Golfer(name = name)
                 p.save()
