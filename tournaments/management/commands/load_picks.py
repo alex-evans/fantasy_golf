@@ -1,8 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
-from bs4 import BeautifulSoup
 from tournaments.models import Tournament, GroupGolfer, Golfer, Group, Member, MemberPick
 import os
-import requests
 import csv
 
 

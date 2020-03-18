@@ -3,6 +3,7 @@ from django.db import models
 
 class Tournament(models.Model):
     name = models.CharField(max_length = 200)
+    projected_winnings = models.CharField(max_length = 10000, blank = True)
     # start_date = models.DateField('start date')
     # end_date = models.DateField('end date')
     # leaderboard_url = models.CharField(max_length=200, blank=True)
